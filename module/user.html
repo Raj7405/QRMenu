@@ -1,0 +1,45 @@
+<!-- menu-page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Menu</title>
+</head>
+<body>
+  <h1>Welcome to Menu Page</h1>
+  <p>This is the menu page for users.</p>
+  
+  <!-- Menu items display and cart logic go here -->
+
+  <script>
+    // Menu page logic goes here
+    
+    // Example of retrieving menu items from localStorage on the cart page
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+
+    // Display menu items on the page
+    const menuList = document.getElementById('menuList');
+    menuItems.forEach(item => {
+        const itemCard = document.createElement('div');
+        itemCard.innerHTML = `
+        <h3>${item.name}</h3>
+        <p>Price: $${item.price}</p>
+        <p>${item.description}</p>
+        <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+        `;
+        menuList.appendChild(itemCard);
+    });
+
+    // Function to add item to cart
+    window.addToCart = (name, price) => {
+        // Add cart logic here (e.g., updating cart items in localStorage)
+        console.log(`Added ${name} to cart for $${price}`);
+    };
+    });
+
+
+  </script>
+</body>
+</html>

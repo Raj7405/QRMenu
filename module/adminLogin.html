@@ -1,0 +1,40 @@
+<!-- admin-login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+</head>
+<body>
+  <h1>Admin Login</h1>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    <button type="submit">Login</button>
+  </form>
+  <button onclick="redirectToUser()">menu here</button>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Hardcoded admin credentials (for demonstration purposes)
+      const adminCredentials = { username: 'admin', password: 'admin123' };
+
+      if (username === adminCredentials.username && password === adminCredentials.password) {
+        localStorage.setItem('isAdminLoggedIn', 'true');
+        window.location.href = 'adminPanel.html'; // Redirect to admin panel
+      } else {
+        alert('Invalid credentials');
+      }
+    });
+    function redirectToUser(){
+        window.location.href = 'user.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --primary-color : #FF724C;
+    --secondar-color:#FDBF50;
+    --primary-font-color : #2A2C41;
+    --secondary-font-color: #F4F4F8;
+}
+a{
+    text-decoration: none;
+}
+body{
+    position: relative;
+    background-color: var(--secondary-font-color);
+}
+.navBar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* height: fit-content; */
+    padding: 20px 40px; 
+    background-color: #fff ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navBar{
+    background: white;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.2)
+    );
+    backdrop-filter: blur(5px);
+}
+.upperBackSection{
+    width: 100%;
+    height: 500px;
+    background-image: url(assets/various-dishes-spices-table.jpg);
+    background-size: cover;
+    background-position: 100% -2%;
+}
+.navBar .profileIcon{
+    width: 30%;
+}
+.navBar i{
+    color: var(--primary-font-color);
+    padding: 7px;
+    border: 1px solid var(--primary-font-color);
+    border-radius: 50%;
+}
+.navBar h1{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    width: 30%;
+    font-weight: 900;
+    color: var(--primary-font-color);
+}
+.navBar a{
+    font-weight: 700;
+    color: var(--primary-font-color);
+    margin: 20px;
+}
+.navLink{
+    
+    text-align: center;
+    width: 30%;
+}
+
+.welcomeMes{
+    width: 100%;
+    margin: auto;
+    padding: 30px;
+    color: var(--secondary-font-color);
+    background-color: var(--secondar-color);
+}
+.welcomeMes h1{
+    max-width: 500px;
+    margin: auto;
+}
+
+.mainSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.addItemFormSection{
+    width: 100%;
+    max-width: 45%;
+    background-color: #fff;
+
+
+}
+.addItemFormSection h2{
+    width: fit-content;
+    color: var(--primary-font-color);
+    /* background-color: antiquewhite; */
+    margin: auto;
+    padding: 30px 40px;
+}
+.addItemFormSection form{
+
+    padding: 20px 50px;
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.inputSection{
+    width: 100%;
+    display: flex;
+}
+.leftInput, .rightInput{
+    margin-top: 30px;
+    width: 50%;
+}
+form input{
+    display: inline-block;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
+}
+.rightInput{
+    margin-left: 20px;
+}
+.rightInput textarea{
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    /* margin: 15px 50px; */
+    border: 0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    resize: none;
+}
+form button{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 0;
+    border-radius: 5px;
+    color: var(--secondary-font-color);
+    background-color: var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.emptyDiv{
+    margin-top: 30px;
+}
+.cardSection{
+    width: 100%;
+    max-width: 55%;
+    min-height: 200px;
+    /* background-color: cadetblue; */
+}
+
+.item-card{
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    overflow:hidden;
+}
+.item-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.item-card h3{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.item-card p{
+    padding: 10px;
+}

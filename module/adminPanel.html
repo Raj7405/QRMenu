@@ -5,28 +5,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel</title>
+  <link rel="stylesheet" href="adminPanel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 </head>
 <body>
-  <h1>Welcome to Admin Panel</h1>
-  <p>This is a protected page.</p>
+  <div class="upperBackSection"></div>
+  <nav class="navBar">
+    <div class="profileIcon">
+      <i class="fa-solid fa-user"></i>
+    </div>
+    
+    <h1>QR Menu</h1>
+    <div class="navLink">
+      <a href="#">Menu</a>
+      <a href="#">Profile</a>
+      <a href="#">Features</a>
+      <a href="#">About Us</a>
+    </div>
+  </nav>
   
-  <!-- Adding item Section -->
-  <h1>Add New Item</h1>
-  <form id="addItemForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="price" min="0" required><br>
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea><br>
-    <button type="submit">Add Item</button>
-  </form>
-
-  <!-- menu card will load here -->
-  
-  <div id="itemList">
-    <!-- Items will be displayed here -->
+  <div class="welcomeMes">
+    <h1>Welcome to Admin Panel</h1>
   </div>
+  
+  <section class="mainSection">
+      
+      <!-- Adding item Section -->
+      <div class="addItemFormSection">
+        <h2>Add New Item</h2>
+        <form id="addItemForm">
+          <div class="inputSection">
+            <div class="leftInput">
+              <input type="text" id="name" name="name" placeholder="Item Tittle" required><br>
+              <input type="text" id="price" name="price" min="0" placeholder="Price" required><br>
+              <input type="text" id="price" name="imgUrl" min="0" placeholder="Image " required><br>
+            </div>
+  
+            <div class="rightInput">
+              <textarea id="description" name="description" placeholder="Description"></textarea><br>
+            </div>
+          </div>
+          
+          <button type="submit">Add Item</button>
+        </form>  
+        <div class="emptyDiv"></div>
+      </div>
+      
+      <!-- menu card will load here -->
+      
+      <div class="cardSection" id="itemList">
+        <!-- Items will be displayed here -->
+
+      </div>
+  </section>
 
    <!-- TO clear all previous data -->
    <button onclick="clearLocalStorage()">clear data</button>
@@ -35,10 +67,11 @@
     //checking if admin is login or not
     const isAdminLoggedIn = localStorage.getItem('isAdminLoggedIn');
 
-    if (!isAdminLoggedIn) {
-      alert('You are not logged in as an admin.');
-      window.location.href = 'admin-login.html'; // Redirect to admin login page
-    }
+
+    // if (!isAdminLoggedIn) {
+    //   alert('You are not logged in as an admin.');
+    //   window.location.href = 'adminLogin.html'; // Redirect to admin login page
+    // }
 
     // Admin panel logic goes here
     const addItemForm = document.getElementById('addItemForm');
@@ -50,9 +83,10 @@
       e.preventDefault();
       const name = addItemForm.elements['name'].value;
       const price = addItemForm.elements['price'].value;
+      const imgUrl = addItemForm.elements['imgUrl'].value;
       const description = addItemForm.elements['description'].value;
-
-      const newItem = { name, price, description };
+ console.log(price)
+      const newItem = { name, price, description, imgUrl };
       saveItem(newItem); //storing in local storage
       addItemToDOM(newItem); // adding item on web page using local storage data
       addItemForm.reset();
@@ -72,8 +106,9 @@
       const itemCard = document.createElement('div');
       itemCard.classList.add('item-card');
       itemCard.innerHTML = `
+        <img src ="${item.imgUrl}"> 
         <h3>${item.name}</h3>
-        <p>Price: $${item.price}</p>
+        <p>Price: Rs.${item.price}</p>
         <p>${item.description}</p>
       `;
       itemList.appendChild(itemCard);
